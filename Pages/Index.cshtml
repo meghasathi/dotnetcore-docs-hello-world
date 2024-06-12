@@ -1,7 +1,7 @@
 @page
-@model MyProjectNamespace.Pages.IndexModel
-@{
-    ViewData["Title"] = "Home Page";
+@model IndexModel
+@{    
+    ViewData["Title"] = "MeghaWeb page";
 }
 
 <!DOCTYPE html>
@@ -9,9 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Welcome to My Unique Web Page">
-    <meta name="author" content="Your Name">
-    <title>Welcome to My Unique Web Page</title>
+    <title>@ViewData["Title"]</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,34 +17,21 @@
             margin: 0;
             padding: 0;
             text-align: center;
-        }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 1em 0;
-        }
-        section {
-            padding: 2em;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 1em 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
             overflow: hidden;
         }
-        h1 {
+        .text-center {
+            padding: 2em;
+        }
+        .display-4 {
+            font-size: 2.5em;
             margin: 0.5em 0;
+            animation: fadeIn 2s ease-in-out;
         }
         p {
+            font-size: 1.2em;
             color: #666;
             line-height: 1.6;
+            animation: fadeIn 3s ease-in-out;
         }
         a {
             color: #4CAF50;
@@ -55,49 +40,51 @@
         a:hover {
             text-decoration: underline;
         }
-        .welcome {
-            font-size: 2em;
-            margin: 1em 0;
-            color: #333;
-            animation: fadeIn 2s;
-        }
-        .animation-image {
-            width: 100%;
-            max-width: 400px;
-            margin: 2em auto;
-            animation: bounce 2s infinite;
+        .os-version {
+            font-size: 1.1em;
+            margin-top: 1em;
+            animation: fadeIn 4s ease-in-out;
         }
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-30px); }
-            60% { transform: translateY(-15px); }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1em 0;
+            animation: slideIn 1.5s forwards;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            overflow: hidden;
         }
     </style>
 </head>
 <body>
-    <header>
+    <header class="header">
         <div class="container">
-            <h1>Welcome to My Unique Web Page</h1>
+            <h1>Welcome to MeghaWeb Page</h1>
         </div>
     </header>
-    <section>
-        <div class="container">
-            <div class="welcome">Welcome to the Web Page!</div>
-            <img src="https://media.giphy.com/media/26xBwdIuRJiAIqHwA/giphy.gif" alt="Animated Image" class="animation-image">
-            <h2>About This Page</h2>
-            <p>This is a unique web page created to demonstrate a basic HTML structure. Feel free to customize it to fit your needs.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ultricies felis ac nisi efficitur, nec blandit nulla consequat. Curabitur vel mi id mi varius hendrerit. Sed ut felis non odio auctor suscipit ut eu velit.</p>
-            <p>Visit our <a href="#">Contact Us</a> page to get in touch.</p>
-        </div>
-    </section>
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Your Name. All Rights Reserved.</p>
-        </div>
-    </footer>
+    <div class="text-center">
+        <h1 class="display-4">Hello World from MeghaWebPage</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with Megha.NET Core</a>.</p>
+        <hr />
+        <div class="os-version">Host operating system: @Model.OSVersion</div>
+    </div>
 </body>
 </html>
